@@ -24,10 +24,15 @@ function phoneSelector() {
   return selected;
 }
 
+function getRemainingBalance(){
+  return bal - spent;
+}
+
 function buyAcc(){
   if (spent < bal){
     spent = spent + acc_price;
-    console.log(spent);
+    acc_count = prompt('You have enough for an accessory! How many accessories do you want?');
+    return acc_count
   }
 }
 //  I want to start with b and subtract 90 however many times phoneSelector dictates
@@ -40,10 +45,15 @@ function banktophoneLoop(){
   }
 }
 
+
+
 for (spent = 0; spent < bal; spent = (spent + phone_price) * phone_amount){
   spent = spent + calculateTax(spent);
   console.log("Your purchase: " + formatPrice(spent));
+  console.log("Remaining Balance: " + getRemainingBalance().toFixed(2));
 }
+
+
 
 
 
